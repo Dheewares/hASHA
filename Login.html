@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>H-Asha Login</title>
+    <link rel="icon" href="/img/logo.jpg" type="jpg" />
+    <style>
+      body {
+        background-color: #fafafa;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border: none;
+        border-radius: 12px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group b {
+        color: red;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: rgb(255, 92, 0);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: rgba(255, 119, 40, 0.983);
+      }
+
+      .links {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .links a {
+        color: #999;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>H-Asha Login</h1>
+      <form>
+        <div class="form-group">
+          <label for="username">Username<b>*</b></label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password<b>*</b></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <button id="submit" type="submit" onclick="clk()" class="btn">
+          Log In
+        </button>
+      </form>
+      <div class="links">
+        <a href="#"><u>Forgot Password?</u></a>
+        <a href="#"><u>Sign Up</u></a>
+      </div>
+    </div>
+    <script>
+      function clk() {
+        event.preventDefault();
+        inp = document.getElementById("username").value;
+        pass = document.getElementById("password").value;
+        if (inp === "" && pass === "") {
+          alert("All fields are required!!");
+        } else {
+          window.location.href = "patient.html";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>H-ASHA Signup For Patient</title>
+    <link rel="icon" href="/img/logo.jpg" type="jpg" />
+    <style>
+      body {
+        background-color: #fafafa;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 400px;
+        padding: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        margin: 0 auto;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+      }
+
+      .logo img {
+        border-radius: 50%;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group b {
+        color: red;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      input[type="text"],
+      input[type="tel"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: rgb(255, 92, 0);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: rgb(248, 135, 70);
+      }
+
+      .links {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .links a {
+        color: #999;
+        text-decoration: underline;
+        /* text-decoration-color: red; Change the color of the underline */
+        /* text-decoration-style: dashed; Change the style of the underline */
+        text-decoration-thickness: 2px; /* Change the thickness of the underline */
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="./img/logo.jpg" height="100px" width="100px" alt="" />
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="name">Name<b>*</b></label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="username">Username<b>*</b></label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email<b>*</b></label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password<b>*</b></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="MobNo">Mobile No.<b>*</b></label>
+          <input
+            type="tel"
+            id="MobNo"
+            name="MobNo"
+            pattern="[0-9]{10}"
+            placeholder="Enter your Mobile No."
+            required
+          />
+        </div>
+        <button id="submit" type="submit" onclick="VgenerateOTP()" class="btn">
+          Sign Up
+        </button>
+      </form>
+      <div class="links">
+        <a href="#">Already have an Account?</a>
+        <a href="./Login.html">Log In</a>
+      </div>
+    </div>
+  </body>
+  <script>
+    function VgenerateOTP() {
+      const names = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const username = document.getElementById("username").value;
+      const phoneNum = document.getElementById("MobNo").value;
+
+      event.preventDefault();
+
+      if (!names || !email || !password || !username || !phoneNum) {
+        alert("All fields are mandatory");
+      } else {
+        generateOTP(); // Call the generateOTP function
+      }
+    }
+
+    function generateOTP() {
+      const phoneNumber = document.getElementById("MobNo").value;
+      const otp = Math.floor(100000 + Math.random() * 900000);
+      alert(`OTP sent to ${phoneNumber}: ${otp}`);
+      sessionStorage.setItem("generatedOTP", otp); // Store OTP in sessionStorage
+      sessionStorage.setItem("phoneNumber", phoneNumber); // Store phone number
+      window.open("LoginOtp.html", "_self"); // Redirect to validation page
+      // window.location.href = "LoginOtp.html";
+    }
+  </script>
+</html>
