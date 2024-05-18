@@ -213,12 +213,13 @@ ul > li {
 
 .glow-on-hover:active {
   color: black;
-  opacity: 0.3;
+  opacity: 1;
 }
 
-.glow-on-hover:active:after {
+
+/* .glow-on-hover:active:after {
   background: transparent;
-}
+} */ 
 
 .glow-on-hover:hover:before {
   opacity: 1;
