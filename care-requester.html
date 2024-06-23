@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="/img/logo.jpg">
+    <link rel="stylesheet" href="/css/care-requester.css">
+</head>
+<body>
+    <main>
+        <form action="">
+            <div class="service-requested">
+                <div>
+                    <b>Number Of Services-Requested</b>
+                </div>
+            </div>
+            <button class="create-form">Request Service</button>
+            <hr>
+            <div class="service-request">
+                <div><b>Service Request Form</b></div>
+                <select name="services" id="services">
+                    <option value=""selected disabled>Select The Services</option>
+                    <option value="Hospital care services">Hospital care services</option>
+                    <option value="Dog care">Dog care</option>
+                    <option value="baby sitting">baby sitting</option>
+                    <option value="House painting">House painting</option>
+                    <option value="Electrician">Electrician</option>
+                    <option value="Plumber">Plumber</option>
+                    <option value="Lost and Found">Lost and Found</option>
+                    <option value="Others"></option>
+                </select>
+                <br>
+                <input type="text" placeholder="Description">
+                <br>
+                <input type="text" placeholder="Address">
+                <br>
+                <select name="service-type" id="" value="">
+                    <option value=""selected disabled>Select The Service Type</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value=""></option>
+                </select>
+                <br>
+                <input type="number" placeholder="Service-Hours" min="0" max="24">
+                <br>
+                <input type="number" placeholder="Service-Days" min="0" max="365">
+                <br>
+
+            </div>
+        </form>
+    </main>
+</body>
+</html>
