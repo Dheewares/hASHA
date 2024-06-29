@@ -37,7 +37,7 @@ p {
   width: 120px;
   height: 120px;
   background-color: #868d9b;
-  background: url("/img/customer.png");
+  background: url("../img/customer.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -51,7 +51,7 @@ p {
   width: 100%;
   height: 180px;
   background-color: #e1e7ed;
-  background: url("/img 2/our_services_background.jpg");
+  background: url("img 2/our_services_background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

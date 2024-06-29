@@ -73,4 +73,19 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 14px;
   }
-  
+  ul{
+    list-style-type: decimal;
+  }
+  .service-name {
+    font-weight: bold;
+    color: #007bff; /* Blue color */
+}
+.service-type {
+    color: #28a745; /* Green color */
+}
+.service-days {
+    color: #dc3545; /* Red color */
+}
+.service-hours {
+    color: #ffc107; /* Yellow color */
+}
