@@ -4,15 +4,23 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import userRoutes from "./routes/userRoute.js";
-import { register } from "./controllers/userController.js";
 
 config();
 
+const allowedOrigins = ["http://localhost:5500", "http://127.0.0.1:5500"];
 const app = express();
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
     credentials: true,
   })
 );

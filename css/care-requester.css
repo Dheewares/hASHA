@@ -77,16 +77,3 @@ button.create-form:hover {
 ul {
   list-style-type: decimal;
 }
-.service-name {
-  font-weight: bold;
-  color: #007bff; /* Blue color */
-}
-.service-type {
-  color: #28a745; /* Green color */
-}
-.service-days {
-  color: #dc3545; /* Red color */
-}
-.service-hours {
-  color: #ffc107; /* Yellow color */
-}
