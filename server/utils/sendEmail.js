@@ -12,7 +12,7 @@ const sendEmail = async (recipientEmail, subject, message) => {
       },
     });
     let info = await transporter.sendMail({
-      from: `"BHARGO PVT LTD."<${process.env.SMTP_USERNAME}>`,
+      from: `"BHARGO"<${process.env.SMTP_USERNAME}>`,
       to: recipientEmail,
       subject: subject,
       html: message,

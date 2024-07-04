@@ -3,7 +3,7 @@
   <head>
     <title>H-ASHA Signup For Patient</title>
     <link rel="icon" href="img/logo.jpg" type="jpg" />
-    
+
     <!--******************************** CSS Code *****************************************************-->
     <style>
       body {
@@ -18,6 +18,7 @@
         background-color: #fff;
         margin: 0 auto;
       }
+
       .logo {
         display: flex;
         align-items: center;
@@ -37,6 +38,7 @@
       .form-group {
         margin-bottom: 20px;
       }
+
       .form-group b {
         color: red;
       }
@@ -49,12 +51,23 @@
 
       input[type="text"],
       input[type="tel"],
-      input[type="password"] {
+      input[type="password"],
+      input[type="file"],
+      select {
         width: 100%;
         padding: 10px;
         font-size: 16px;
         border: 1px solid #ddd;
         border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="file"] {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
       }
 
       .btn {
@@ -83,37 +96,38 @@
       .links a {
         color: #999;
         text-decoration: underline;
-        /* text-decoration-color: red; Change the color of the underline */
-        /* text-decoration-style: dashed; Change the style of the underline */
-        text-decoration-thickness: 2px; /* Change the thickness of the underline */
+        text-decoration-thickness: 2px;
         margin: 0 10px;
       }
+
+      #otherDocTypeGroup {
+        display: none;
+      }
     </style>
-    <!--*********************************** Signup as Patient Form *******************************************-->
   </head>
   <body>
     <div class="container">
       <div class="logo">
-        <img src="img/logo.jpg" height="100px" width="100px" alt="" />
+        <img src="img/logo.jpg" height="100px" width="100px" alt="Logo" />
       </div>
       <form>
         <div class="form-group">
-          <label for="name">Name<b>*</b></label>
+          <label for="first_name">First Name<b>*</b></label>
           <input
             type="text"
-            id="name"
-            name="name"
-            placeholder="Enter your Name"
+            id="first_name"
+            name="first_name"
+            placeholder="Enter your First Name"
             required
           />
         </div>
         <div class="form-group">
-          <label for="username">Username<b>*</b></label>
+          <label for="last_name">Last Name<b>*</b></label>
           <input
             type="text"
-            id="username"
-            name="username"
-            placeholder="Enter your username"
+            id="last_name"
+            name="last_name"
+            placeholder="Enter your Last Name"
             required
           />
         </div>
@@ -133,57 +147,85 @@
             type="password"
             id="password"
             name="password"
-            placeholder="Enter your password"
+            placeholder="Enter your Password"
             required
           />
         </div>
         <div class="form-group">
-          <label for="MobNo">Mobile No.<b>*</b></label>
+          <label for="phone">Mobile No.<b>*</b></label>
           <input
             type="tel"
-            id="MobNo"
-            name="MobNo"
+            id="phone"
+            name="phone"
             pattern="[0-9]{10}"
             placeholder="Enter your Mobile No."
             required
           />
         </div>
-        <button id="submit" type="submit" onclick="VgenerateOTP()" class="btn">
+        <div class="form-group">
+          <label for="user_type">User Type<b>*</b></label>
+          <select id="user_type" name="user_type" required>
+            <option value="" selected disabled>Select User Type</option>
+            <option value="care_requester">Care Requester</option>
+            <option value="care_provider">Care Provider</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="identification_doc_type"
+            >Identification Document Type<b>*</b></label
+          >
+          <select
+            id="identification_doc_type"
+            name="identification_doc_type"
+            required
+            onchange="showOtherDocType()"
+          >
+            <option value="" selected disabled>
+              Select Identification Document Type
+            </option>
+            <option value="aadhar">Aadhar</option>
+            <option value="pan">PAN</option>
+            <option value="driving_license">Driving License</option>
+            <option value="epic_no">EPIC No</option>
+            <option value="passport">Passport</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+        <div class="form-group" id="otherDocTypeGroup">
+          <label for="otherDocType">Specify Other Document Type<b>*</b></label>
+          <input
+            type="text"
+            id="otherDocType"
+            name="otherDocType"
+            placeholder="Specify Other Document Type"
+          />
+        </div>
+        <div class="form-group">
+          <label for="identification_doc"
+            >Identification Document<b>*</b></label
+          >
+          <input
+            type="file"
+            id="identification_doc"
+            name="identification_doc"
+            accept="image/*"
+            required
+          />
+        </div>
+        <button
+          id="submit"
+          type="submit"
+          class="btn"
+          onclick="handleFormSubmit(event)"
+        >
           Sign Up
         </button>
       </form>
       <div class="links">
-        <a href="#">Already have an Account?</a>
+        Already have an Account?
         <a href="Login.html">Log In</a>
       </div>
     </div>
+    <script src="./js/Signup.js"></script>
   </body>
-  <!--********************************* JavaScript for getting input from SignUp form***************** -->
-  <script>
-    function VgenerateOTP() {
-      const names = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const username = document.getElementById("username").value;
-      const phoneNum = document.getElementById("MobNo").value;
-
-      event.preventDefault();
-
-      if (!names || !email || !password || !username || !phoneNum) {
-        alert("All fields are mandatory");
-      } else {
-        generateOTP(); // Call the generateOTP function
-      }
-    }
-
-    function generateOTP() {
-      const phoneNumber = document.getElementById("MobNo").value;
-      const otp = Math.floor(100000 + Math.random() * 900000);
-      alert(`OTP sent to ${phoneNumber}: ${otp}`);
-      sessionStorage.setItem("generatedOTP", otp); // Store OTP in sessionStorage
-      sessionStorage.setItem("phoneNumber", phoneNumber); // Store phone number
-      window.open("LoginOtp.html", "_self"); // Redirect to validation page
-      // window.location.href = "LoginOtp.html";
-    }
-  </script>
 </html>

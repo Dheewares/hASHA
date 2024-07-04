@@ -83,12 +83,12 @@
       <h1>H-Asha Login</h1>
       <form>
         <div class="form-group">
-          <label for="username">Username<b>*</b></label>
+          <label for="username">Email<b>*</b></label>
           <input
             type="text"
             id="username"
             name="username"
-            placeholder="Enter your username"
+            placeholder="Enter your email"
             required
           />
         </div>
@@ -102,28 +102,15 @@
             required
           />
         </div>
-        <button id="submit" type="submit" onclick="clk()" class="btn">
+        <button id="submit" type="submit" onclick="clk(event)" class="btn">
           Log In
         </button>
       </form>
       <div class="links">
         <a href="#"><u>Forgot Password?</u></a>
-        <a href="signingpage.html"><u>Sign Up</u></a>
+        <a href="Signup.html"><u>Sign Up</u></a>
       </div>
     </div>
-
-    <!-- ***************************** Script for getting data from login form *****************************-->
-    <script>
-      function clk() {
-        event.preventDefault();
-        inp = document.getElementById("username").value;
-        pass = document.getElementById("password").value;
-        if (inp === "" && pass === "") {
-          alert("All fields are required!!");
-        } else {
-          window.location.href = "index2.html";
-        }
-      }
-    </script>
+    <script src="./js/Login.js"></script>
   </body>
 </html>

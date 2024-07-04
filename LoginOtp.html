@@ -104,35 +104,16 @@
         <div class="resend">
           <a href="#"><u>Resend OTP</u></a>
         </div>
-        <button id="submit" type="submit" onclick="validateOTP()" class="btn">
+        <button
+          id="submit"
+          type="submit"
+          onclick="validateOTP(event)"
+          class="btn"
+        >
           Log In
         </button>
       </form>
     </div>
-    
-    <!--***************************js for validating otp*************************************************-->
-    <script>
-      function validateOTP() {
-        const enteredOTP = document.getElementById("otp").value;
-        const storedOTP = sessionStorage.getItem("generatedOTP");
-        const phoneNumber = sessionStorage.getItem("phoneNumber");
-        event.preventDefault();
-
-        console.log("Entered OTP:", enteredOTP);
-        console.log("Stored OTP:", storedOTP);
-        console.log("Phone Number:", phoneNumber);
-
-        try {
-          if (enteredOTP == storedOTP) {
-            alert("OTP validated successfully!");
-            window.open("index2.html", "_self");
-          } else {
-            alert("Invalid OTP! Please try again.");
-          }
-        } catch (e) {
-          console.log(e.message);
-        }
-      }
-    </script>
+    <script src="./js/LoginOtp.js"></script>
   </body>
 </html>
