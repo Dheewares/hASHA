@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Requested Services</title>
+    <link rel="icon" href="img/logo.jpg" />
+    <link rel="stylesheet" href="css/care-requester.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Requested Services</h1>
+      <ul id="requestedServicesList">
+        <!-- List items will be added dynamically by JavaScript -->
+      </ul>
+      <script>
+        // Fetch serviceRequests array from localStorage
+        var serviceRequests =
+          JSON.parse(localStorage.getItem("serviceRequests")) || [];
+
+        // Function to display requested services
+        function displayRequestedServices() {
+          var listContainer = document.getElementById("requestedServicesList");
+
+          // Clear existing list items
+          listContainer.innerHTML = "";
+
+          // Loop through the array and create list items
+          serviceRequests.forEach(function (service, index) {
+            var listItem = document.createElement("li");
+
+            listItem.innerHTML = `
+              <b>Service:</b> ${service.serviceName}<br>
+              <b>Description:</b> ${service.description}<br>
+              <b>Address:</b> ${service.address}<br>
+              <b>Type:</b> ${service.serviceType}<br>
+              <b>Days:</b> ${service.serviceDays}<br>
+              <b>Hours:</b> ${service.serviceHours}<br>
+              <button onclick="applyForService(${index})">Apply</button>
+              <br><br>
+            `;
+
+            listContainer.appendChild(listItem);
+          });
+        }
+
+        // Function to handle apply button click
+        function applyForService(index) {
+          alert("Applied for " + serviceRequests[index].serviceName);
+        }
+
+        // Initial call to populate the list of requested services
+        displayRequestedServices();
+      </script>
+    </main>
+  </body>
+</html>
