@@ -4,10 +4,11 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import userRoutes from "./routes/userRoute.js";
+import jobRoutes from "./routes/jobRoutes.js";
 
 config();
 
-const allowedOrigins = ["http://localhost:5500", "http://127.0.0.1:5500"];
+const allowedOrigins = [process.env.FRONTEND_URL_N, process.env.FRONTEND_URL_D];
 const app = express();
 
 app.use(
@@ -31,6 +32,7 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/jobs", jobRoutes);
 
 // app.all("*", (req, res) => {
 //   res.status(404).send("OOPS! Page Not found!!");

@@ -34,7 +34,10 @@ label {
 
 input[type="text"],
 input[type="number"],
-select {
+select,
+textarea,
+input[type="time"],
+input[type="datetime-local"] {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
@@ -56,6 +59,10 @@ button.create-form {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+label {
+  color: #555;
 }
 
 button.create-form:hover {

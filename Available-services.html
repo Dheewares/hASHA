@@ -5,53 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Requested Services</title>
     <link rel="icon" href="img/logo.jpg" />
-    <link rel="stylesheet" href="css/care-requester.css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      main {
+        text-align: center;
+      }
+      #jobListings {
+        max-width: 800px;
+        max-height: 400px;
+        overflow-y: scroll;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+      }
+      .job-item {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+      .apply-button {
+        display: block;
+        margin: 10px auto;
+        padding: 8px 16px;
+        background-color: rgb(255, 90, 0);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+      .apply-button:hover {
+        background-color: rgb(255, 99, 0);
+      }
+      #searchBar {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
     <main>
       <h1>Requested Services</h1>
-      <ul id="requestedServicesList">
-        <!-- List items will be added dynamically by JavaScript -->
-      </ul>
-      <script>
-        // Fetch serviceRequests array from localStorage
-        var serviceRequests =
-          JSON.parse(localStorage.getItem("serviceRequests")) || [];
-
-        // Function to display requested services
-        function displayRequestedServices() {
-          var listContainer = document.getElementById("requestedServicesList");
-
-          // Clear existing list items
-          listContainer.innerHTML = "";
-
-          // Loop through the array and create list items
-          serviceRequests.forEach(function (service, index) {
-            var listItem = document.createElement("li");
-
-            listItem.innerHTML = `
-              <b>Service:</b> ${service.serviceName}<br>
-              <b>Description:</b> ${service.description}<br>
-              <b>Address:</b> ${service.address}<br>
-              <b>Type:</b> ${service.serviceType}<br>
-              <b>Days:</b> ${service.serviceDays}<br>
-              <b>Hours:</b> ${service.serviceHours}<br>
-              <button onclick="applyForService(${index})">Apply</button>
-              <br><br>
-            `;
-
-            listContainer.appendChild(listItem);
-          });
-        }
-
-        // Function to handle apply button click
-        function applyForService(index) {
-          alert("Applied for " + serviceRequests[index].serviceName);
-        }
-
-        // Initial call to populate the list of requested services
-        displayRequestedServices();
-      </script>
+      <input
+        type="text"
+        id="searchBar"
+        placeholder="Search by job title..."
+        oninput="filterJobs()"
+      />
+      <div id="jobListings">
+        <!-- Job listings will be added dynamically by JavaScript -->
+      </div>
+      <script src="./js/availableService.js"></script>
     </main>
   </body>
 </html>
