@@ -64,3 +64,9 @@ body {
 .attendant a {
   color: green;
 }
+marquee{
+  background-color: blue;
+  text-transform: capitalize;
+  font-weight: 800;
+  color: white;
+}

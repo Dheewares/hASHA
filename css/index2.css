@@ -212,3 +212,9 @@ footer {
   border-radius: 18px;
   margin-top: 10px;
 }
+marquee{
+  background-color: blue;
+  text-transform: capitalize;
+  font-weight: 800;
+  color: white;
+}

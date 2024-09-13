@@ -64,20 +64,23 @@ header {
   font-weight: bolder;
 }
 #head-cont {
-  height: 300px;
+  height: 250px;
   width: 772px;
   display: none;
   /* border:2px red solid; */
   position: fixed;
+  border-radius: 14px;
+  box-shadow: #df975c;
   left: 250px;
   z-index: 3;
-  overflow: auto; /*Enable scroll if needed */
-  background-color: lightgray; /* Fallback color */
+  overflow: hidden; /*disable scroll */
+  background-color: white; /* Fallback color */
 }
 .heading-cont {
-  text-align: center;
+  text-align:center;
   font-size: large;
-  color: navy;
+  margin-bottom: 10px;
+  color: #df975c;
 }
 ul > li {
   color: green;
@@ -178,7 +181,7 @@ ul > li {
   background-color: #f7f3e9;
   cursor: pointer;
   position: relative;
-  z-index: 0;
+  z-index: 6;
   border-radius: 10px;
   box-shadow: green 0px 3px 5px;
 }
@@ -217,9 +220,9 @@ ul > li {
 }
 
 
-/* .glow-on-hover:active:after {
+ /* .glow-on-hover:active:after {
   background: transparent;
-} */ 
+}  */
 
 .glow-on-hover:hover:before {
   opacity: 1;
@@ -313,9 +316,9 @@ ul > li {
   gap: 30px;
 }
 
-.quotes {
+/* .quotes {
   margin-left: 250px;
-}
+} */
 .img-profile-inner > u {
   font-size: medium;
 }
@@ -339,7 +342,7 @@ ul > li {
 }
 
 .serv {
-  color: black;
+  color: #ff7300;
   padding: 5px 10px; /* Padding to create space around the text */
   border: 1px solid rgb(255, 92, 0); /* Border properties */
   border-radius: 3px; /* Border radius for rounded corners */
@@ -468,4 +471,7 @@ footer {
   border: none;
   border-radius: 18px;
   margin-top: 10px;
+}
+p{
+  display: inline-block;
 }

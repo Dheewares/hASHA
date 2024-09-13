@@ -29,3 +29,9 @@ body{
 img{
     border-radius: 14px;
 }
+marquee{
+    background-color: blue;
+    text-transform: capitalize;
+    font-weight: 800;
+    color: white;
+  }

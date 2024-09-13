@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 10px;
+            padding: 10px;
+            background-color: bisque;
+        }
+        div{
+            border: 2px black solid;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+        }
+        button{
+            text-align: center;
+            border: 1 px black solid;
+            height: 50px;
+            width: 150px;
+            margin-top: 20px;
+            border-radius: 14px;
+            color: black;
+            text-transform: capitalize;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="btn-gps">Show Location</button>
+        <p id="location">show user's location</p>
+        <p id="address">Users Address:</p>
+        <p id="formattedAddress">Full Address:</p>
+    </div>
+    <script>
+         let apiEndpoints="https://api.opencagedata.com/geocode/v1/json";
+         let apiKey="c1a82d7b8a194ca6bfcf809fcef99926";
+
+
+         const getUserCurrentAddress= async (latitude,longitude)=>{
+            let query=`${latitude},${longitude}`;
+            let apiUrl=`${apiEndpoints}?key=${apiKey}&q=${query}&pretty=1`;
+            try{
+                const res=await fetch(apiUrl);
+                const data=await res.json();
+                const { city,state,postcode,country }=data.results[0].components;
+                address.textContent=`User address: ${city},${postcode},${state},${country}`;
+                format.textContent=`User full Address: ${data.results[0].formatted}`;
+            }
+            catch(error){
+                console.log(error.message);
+            }
+
+        }
+        let address=document.getElementById('address');
+        let showDetails=document.getElementById("location");
+        let format=document.getElementById('formattedAddress');
+        document.querySelector('#btn-gps').addEventListener("click", ()=>{
+            if(navigator.geolocation){
+                navigator.geolocation.watchPosition(
+                    (position)=>{
+                    showDetails.textContent=`The Latitude ${position.coords.latitude} and Longtitude is ${position.coords.longitude}`;
+                    getUserCurrentAddress(position.coords.latitude,position.coords.longitude);
+                    
+                },
+                (error)=>{
+                    showDetails.textContent=error.message;
+                });
+            }
+        })
+       
+    </script>
+</body>
+</html>
