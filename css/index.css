@@ -345,7 +345,159 @@ marquee{
 
 
 /*media queries*/
-
+/* @media only screen 
+and (min-device-width : 320px)
+and (max-width:480px) */
 @media only screen and (max-width: 768px) {
-  
+  body{
+    width: 100%;
+  }
+  .top{
+    max-width: 100%;
+  }
+  .head{
+    max-width: 95%;
+    gap: 20px;
+  }
+  .title{
+    max-width: 150px;
+    margin-left: 10px;
+  }
+  .title>h4{
+    font-size: 12px;
+    width: 100px;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+  }
+  .links{
+    display: inline-flex;
+    gap: 3px;
+  }
+  .container{
+    max-width: 95%;
+    height: 140px;
+  }
+  #myCarousel,.carousel{
+    max-height: 150px;
+  }
+  .item>img{
+    width: 80%;
+    max-height: 150px;
+  }
+  .service{
+    height: 1000px;
+    width: 98%;
+    flex-direction: column;
+  }
+  .inner{
+    width:90% ;
+    height: fit-content;
+    display: inline-block;
+  }
+  .inner img{
+    width: 95%;
+   
+  }
+  #signup-tag{
+    display: none;
+  }
+  #contact-tag{
+    display: none;
+  }
+  .serv2{
+    display: inline-flex;
+    flex-direction: column;
+    height: 900px;
+    padding: 5px;
+    gap: 10px;
+
+  }
+  .serv-part1{
+    width: 95%;
+    height: 500px;
+    display: block;
+  }
+  #tag{
+    width: 95%;
+    display: block;
+  }
+  .serv-part2{
+    width: 95%;
+    height: 300px;
+    display: inline-flex;
+    position: relative;
+    top: 200px;
+    gap: 10px;
+  }
+  .img{
+    width: 40%;
+    height: 200px;
+    
+  }
+  .image{
+    width: 95%;
+    height: 200px;
+  }
+  .feedback-container{
+    height:fit-content;
+    margin: 5px;
+  }
+  .feed-section{
+    height: fit-content;
+  }
+  .img-profile-outer{
+    height: 90%;
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .img-profile-inner{
+    width: 95%;
+    height: fit-content;
+    margin-bottom: 20px;
+  }
+  footer{
+    padding: 1rem;
+    width: 95%;
+    margin-left: 10px;
+  }
+  .footer-logo{
+    width: 50%;
+    position: relative;
+    right: 90px;
+  }
+  .footer-log img{
+    height: 50px;
+  }
+  .footer-logo h4{
+    font-size: 20px;
+  }
+  .footer-info{
+    display: inline-flex;
+    gap: 10px;
+    padding-left: 10px;
+  }
+  .footer-info>p{
+    display: inline-flex;
+    gap:10px;
+  }
+  .social-links{
+    position: relative;
+    bottom: 50px;
+    right: 70px;
+    padding-left: 10px;
+  }
+  .footer-description{
+    width: 200px;
+    display: inline-block;
+    
+  }
+  .footer-description h4,.footer-description b{
+    width: 250px;
+
+}
+.footer-cta input{
+  position: relative;
+  left: 10px;
+}
 }
